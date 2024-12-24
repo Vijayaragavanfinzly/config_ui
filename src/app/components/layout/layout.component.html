@@ -1,0 +1,88 @@
+<div class="container1">
+  <nav id="sidebar" class="bg-light vh-100 position-fixed d-md-block sidebar" [ngClass]="{'collapsed': isSidebarCollapsed}">
+    <div class="d-flex flex-column p-3">
+      <a routerLink="/" class="logo-container text-center mb-5 fs-4 text-decoration-none">
+        <div class="logo-icon"
+        [ngClass]="{ 'collapsed-logo': isSidebarCollapsed, 'expanded-logo': !isSidebarCollapsed }"></div>
+      </a>
+      <a 
+        class="btn btn-toggle-sidebar mb-3 nav-toggle" 
+        (click)="toggleSidebar()"
+      >
+        <i 
+          class="fas fa-bars" 
+          *ngIf="isSidebarCollapsed"
+        ></i>
+        <i 
+          class="fas fa-times close-icon" 
+          title="Hide (ALT + 1)"
+          *ngIf="!isSidebarCollapsed"
+        ></i>
+      </a>
+      
+      <ul class="nav flex-column mb-auto">
+        <!-- <li class="nav-item">
+          <a routerLink="/environments" routerLinkActive="active" class="nav-link">
+            <i class="fas fa-cogs"></i>
+            <span *ngIf="!isSidebarCollapsed">Environments</span>
+            <small *ngIf="isSidebarCollapsed" class="collapsed-text">Environments</small>
+          </a>
+        </li> -->
+        <li class="nav-item">
+          <a routerLink="/compare" routerLinkActive="active" class="nav-link">
+            <i class="fas fa-exchange-alt"></i>
+            <span *ngIf="!isSidebarCollapsed">&nbsp;Compare</span>
+            <small *ngIf="isSidebarCollapsed" class="collapsed-text">Compare</small>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a routerLink="/tenants" routerLinkActive="active" class="nav-link">
+            <i class="fas fa-user-friends"></i>
+            <span *ngIf="!isSidebarCollapsed">Tenants</span>
+            <small *ngIf="isSidebarCollapsed" class="collapsed-text me-1">Tenants</small>
+          </a>
+        </li>
+        
+        <li class="nav-item">
+          <a routerLink="/clone" routerLinkActive="active" class="nav-link">
+            <i class="fas fa-dna"></i>
+            <span *ngIf="!isSidebarCollapsed">&nbsp;&nbsp;Clone</span>
+            <small *ngIf="isSidebarCollapsed" class="collapsed-text me-1">Clone</small>
+          </a>
+        </li>
+        <!-- <li class="nav-item">
+          <a routerLink="/settings" routerLinkActive="active" class="nav-link">
+            <i class="fas fa-cogs"></i>
+            <span *ngIf="!isSidebarCollapsed">Settings</span>
+            <small *ngIf="isSidebarCollapsed" class="collapsed-text me-1">Settings</small>
+          </a>
+        </li> -->
+
+        <li class="nav-item">
+          <a routerLink="/compare-environments" routerLinkActive="active" class="nav-link">
+            <i class="fas fa-exchange-alt"></i>
+            <span *ngIf="!isSidebarCollapsed">&nbsp;Compare Live</span>
+            <small *ngIf="isSidebarCollapsed" class="collapsed-text me-1">Compare Live</small>
+          </a>
+        </li>
+
+      </ul>
+      
+      <div
+        class="logout mt-auto position-absolute bottom-0 start-0 w-100 p-3 nav-item "
+      >
+        <a
+          class="nav-link d-flex text-decoration-none logout"
+        >
+          <i class="fas fa-sign-out-alt"></i>
+          <span *ngIf="!isSidebarCollapsed">Logout</span>
+          <small *ngIf="isSidebarCollapsed" class="collapsed-text">Logout</small>
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="main-content" [ngStyle]="{'width': isSidebarCollapsed ? 'calc(100% - 70px)' : 'calc(100% - 250px)', 'margin-left': isSidebarCollapsed ? '90px' : '250px'}">
+    <router-outlet></router-outlet>
+  </main>
+</div>

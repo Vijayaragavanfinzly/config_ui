@@ -1,0 +1,44 @@
+<div class="container mt-3">
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb custom-breadcrumb p-3 rounded">
+      <li class="breadcrumb-item active">
+        <a [routerLink]="['/compare']" class="breadcrumb-link active" [routerLinkActive]="['active']">
+          <i class="fas fa-link mr-2"></i> COMPARE
+        </a>
+      </li>
+    </ol>
+  </nav>
+</div>
+
+<div class="container mt-5">
+  <div class="row justify-content-center">
+
+    <div class="col-md-5 m-3">
+      <div class="card compare-card tenant-card shadow-lg">
+        <div class="card-body text-center p-5">
+          <div class="icon-container mb-4">
+            <i class="fas fa-users fa-3x"></i>
+          </div>
+          <h4 class="font-weight-bold mb-3">Compare by Tenants</h4>
+          <p class="card-text mb-4">Choose two different tenants and their respective environments to compare configurations and properties.</p>
+          <a [routerLink]="'/compare/compareByTenant'" class="btn btn-primary w-100">Tenant Analysis</a>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-5 m-3">
+      <div class="card compare-card environment-card shadow-lg">
+        <div class="card-body text-center p-5">
+          <div class="icon-container mb-4">
+            <i class="fas fa-cogs fa-3x"></i>
+          </div>
+          <h4 class="font-weight-bold mb-3">Compare by Environments</h4>
+          <p class="card-text mb-4">Choose a tenant and select multiple environments within that tenant to compare configurations and properties.</p>
+          <a [routerLink]="'/compare/compareByEnvironment'" class="btn btn-primary w-100">Environment Analysis</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
